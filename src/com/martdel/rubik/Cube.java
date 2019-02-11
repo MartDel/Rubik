@@ -16,7 +16,17 @@ public class Cube {
 
 	public void turnFaceRight(Face f, int t) {
 		// Turn a face to the right
-		
+		for(int i = 0; i < t; i++) {
+			f.setOne(f.getSix());
+			f.setTwo(f.getFour());
+			f.setThree(f.getOne());
+			f.setFour(f.getSeven());
+			f.setFive(f.getTwo());
+			f.setSix(f.getEight());
+			f.setSeven(f.getFive());
+			f.setEight(f.getThree());
+			updateAdjacentsFace
+		}
 	}
 	
 	public void turnFaceLeft(int t) {
