@@ -9,7 +9,6 @@ public class Face {
 	private Color colorCenter;
 	
 	// Schematization of a face in the "schema" file
-	// Colors in face
 	
 	private Color one;
 	private Color two;
@@ -19,13 +18,6 @@ public class Face {
 	private Color six;
 	private Color seven;
 	private Color eight;
-	
-	// Adjacents faces
-	
-	private Face top;
-	private Face right;
-	private Face bottom;
-	private Face left;
 	
 	// Construct
 	
@@ -39,6 +31,20 @@ public class Face {
 		setSix(six);
 		setSeven(seven);
 		setEight(eight);
+	}
+	
+	public String[] toArray() {
+		String[] r = {
+			one.toString(),
+			two.toString(),
+			three.toString(),
+			four.toString(),
+			five.toString(),
+			six.toString(),
+			seven.toString(),
+			eight.toString()
+		};
+		return r;
 	}
 	
 	// Getters and setters
@@ -96,29 +102,5 @@ public class Face {
 	}
 	public void setOne(Color one) {
 		this.one = one;
-	}
-	public Face getTop() {
-		return top;
-	}
-	public void setTop(Face top) {
-		this.top = top;
-	}
-	public Face getRight() {
-		return right;
-	}
-	public void setRight(Face right) {
-		this.right = right;
-	}
-	public Face getBottom() {
-		return bottom;
-	}
-	public void setBottom(Face bottom) {
-		this.bottom = bottom;
-	}
-	public Face getLeft() {
-		return left;
-	}
-	public void setLeft(Face left) {
-		this.left = left;
 	}
 }

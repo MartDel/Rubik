@@ -13,9 +13,23 @@ public class Main {
 	public static void main(String[] args) {
 		cube = new Cube();
 		askColor();
-		System.out.println(cube.toString());
+		// cube.turnFaceRight(cube.getWhiteFace(), 1);
+		test();
 	}
 	
+	private static void test() {
+		// test method to test the turn method
+		String[][] result = cube.toArray();
+		String[] faces = {"blanche", "bleue", "rouge", "verte", "orange", "jaune"};
+		for (int y = 0; y < result.length; ++y) {
+			System.out.println("-- Face " + faces[y]);
+	        for (int x = 0; x < result[y].length; ++x) {
+	            System.out.print(result[y][x] + " , ");
+	        }
+	        System.out.println();
+	    }
+	}
+
 	public static Color input(String ask) {
 		String s = "";
 		Color r = null;
@@ -63,48 +77,6 @@ public class Main {
 			array.put(8, input("Coin en bas à droite :"));
 			Face face = new Face(faceColor, array.get(1), array.get(2), array.get(3), array.get(4), array.get(5), array.get(6), array.get(7), array.get(8));
 			addFaceInCube(faceName, face);
-			initAttributesOfFaces(faceName);
-		}
-	}
-
-	private static void initAttributesOfFaces(String faceName) {
-		switch(faceName) {
-		case "blanche" :
-			cube.getWhiteFace().setTop(cube.getBlueFace());
-			cube.getWhiteFace().setRight(cube.getRedFace());
-			cube.getWhiteFace().setBottom(cube.getGreenFace());
-			cube.getWhiteFace().setLeft(cube.getOrangeFace());
-		break;
-		case "bleue" :
-			cube.getBlueFace().setTop(cube.getWhiteFace());
-			cube.getBlueFace().setRight(cube.getRedFace());
-			cube.getBlueFace().setBottom(cube.getYellowFace());
-			cube.getBlueFace().setLeft(cube.getOrangeFace());
-		break;
-		case "rouge" :
-			cube.getRedFace().setTop(cube.getWhiteFace());
-			cube.getRedFace().setRight(cube.getBlueFace());
-			cube.getRedFace().setBottom(cube.getYellowFace());
-			cube.getRedFace().setLeft(cube.getGreenFace());
-		break;
-		case "verte" :
-			cube.getGreenFace().setTop(cube.getWhiteFace());
-			cube.getGreenFace().setRight(cube.getRedFace());
-			cube.getGreenFace().setBottom(cube.getYellowFace());
-			cube.getGreenFace().setLeft(cube.getOrangeFace());
-		break;
-		case "orange" :
-			cube.getOrangeFace().setTop(cube.getWhiteFace());
-			cube.getOrangeFace().setRight(cube.getGreenFace());
-			cube.getOrangeFace().setBottom(cube.getYellowFace());
-			cube.getOrangeFace().setLeft(cube.getBlueFace());
-		break;
-		case "jaune" :
-			cube.getYellowFace().setTop(cube.getBlueFace());
-			cube.getYellowFace().setRight(cube.getRedFace());
-			cube.getYellowFace().setBottom(cube.getGreenFace());
-			cube.getYellowFace().setLeft(cube.getOrangeFace());
-		break;
 		}
 	}
 

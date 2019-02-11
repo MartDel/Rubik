@@ -13,6 +13,18 @@ public class Cube {
 	private Face yellowFace;
 	
 	// Methods
+	
+	public String[][] toArray(){
+		String[][] r = {
+			whiteFace.toArray(),
+			blueFace.toArray(),
+			redFace.toArray(),
+			greenFace.toArray(),
+			orangeFace.toArray(),
+			yellowFace.toArray()
+		};
+		return r;
+	}
 
 	public void turnFaceRight(Face f, int t) {
 		// Turn a face to the right
@@ -25,10 +37,99 @@ public class Cube {
 			f.setSix(f.getEight());
 			f.setSeven(f.getFive());
 			f.setEight(f.getThree());
-			updateAdjacentsFace
+			updateAdjacentsFaces(f);
 		}
 	}
 	
+	private void updateAdjacentsFaces(Face f) {
+		switch(f.getColorCenter()) {
+		case WHITE :
+			blueFace.setOne(orangeFace.getThree());
+			blueFace.setTwo(orangeFace.getTwo());
+			blueFace.setThree(orangeFace.getOne());
+			redFace.setThree(blueFace.getOne());
+			redFace.setTwo(blueFace.getTwo());
+			redFace.setOne(blueFace.getThree());
+			greenFace.setThree(redFace.getThree());
+			greenFace.setTwo(redFace.getTwo());
+			greenFace.setOne(redFace.getOne());
+			orangeFace.setThree(greenFace.getThree());
+			orangeFace.setTwo(greenFace.getTwo());
+			orangeFace.setOne(greenFace.getOne());
+			break;
+		case BLUE:
+			whiteFace.setOne(orangeFace.getSix());
+			whiteFace.setTwo(orangeFace.getFour());
+			whiteFace.setThree(orangeFace.getOne());
+			redFace.setThree(whiteFace.getOne());
+			redFace.setFive(whiteFace.getTwo());
+			redFace.setEight(whiteFace.getThree());
+			yellowFace.setThree(redFace.getThree());
+			yellowFace.setTwo(redFace.getFive());
+			yellowFace.setOne(redFace.getEight());
+			orangeFace.setSix(yellowFace.getThree());
+			orangeFace.setFour(yellowFace.getTwo());
+			orangeFace.setOne(yellowFace.getOne());
+			break;
+		case RED:
+			whiteFace.setThree(greenFace.getEight());
+			whiteFace.setFive(greenFace.getFive());
+			whiteFace.setEight(greenFace.getThree());
+			blueFace.setThree(whiteFace.getThree());
+			blueFace.setFive(whiteFace.getFive());
+			blueFace.setEight(whiteFace.getEight());
+			yellowFace.setOne(blueFace.getThree());
+			yellowFace.setFour(blueFace.getFive());
+			yellowFace.setSix(blueFace.getEight());
+			greenFace.setEight(yellowFace.getOne());
+			greenFace.setFive(yellowFace.getFour());
+			greenFace.setThree(yellowFace.getSix());
+			break;
+		case GREEN:
+			whiteFace.setSix(orangeFace.getEight());
+			whiteFace.setSeven(orangeFace.getFive());
+			whiteFace.setEight(orangeFace.getThree());
+			redFace.setOne(whiteFace.getSix());
+			redFace.setFour(whiteFace.getSeven());
+			redFace.setSix(whiteFace.getEight());
+			yellowFace.setSix(redFace.getOne());
+			yellowFace.setSeven(redFace.getFour());
+			yellowFace.setEight(redFace.getSix());
+			orangeFace.setEight(yellowFace.getSix());
+			orangeFace.setFive(yellowFace.getSeven());
+			orangeFace.setThree(yellowFace.getEight());
+			break;
+		case ORANGE:
+			whiteFace.setOne(blueFace.getSix());
+			whiteFace.setFour(blueFace.getFour());
+			whiteFace.setSix(blueFace.getOne());
+			greenFace.setOne(whiteFace.getOne());
+			greenFace.setFour(whiteFace.getFour());
+			greenFace.setSix(whiteFace.getSix());
+			yellowFace.setEight(greenFace.getOne());
+			yellowFace.setFive(greenFace.getFour());
+			yellowFace.setThree(greenFace.getSix());
+			blueFace.setSix(yellowFace.getEight());
+			blueFace.setFour(yellowFace.getFive());
+			blueFace.setOne(yellowFace.getThree());
+			break;
+		case YELLOW:
+			blueFace.setSix(redFace.getSix());
+			blueFace.setSeven(redFace.getSeven());
+			blueFace.setEight(redFace.getEight());
+			orangeFace.setSix(blueFace.getSix());
+			orangeFace.setSeven(blueFace.getSeven());
+			orangeFace.setEight(blueFace.getEight());
+			greenFace.setSix(orangeFace.getSix());
+			greenFace.setSeven(orangeFace.getSeven());
+			greenFace.setEight(orangeFace.getEight());
+			redFace.setSix(greenFace.getSix());
+			redFace.setSeven(greenFace.getSeven());
+			redFace.setEight(greenFace.getEight());
+			break;
+		}
+	}
+
 	public void turnFaceLeft(int t) {
 		// Turn a face to the left
 	}
