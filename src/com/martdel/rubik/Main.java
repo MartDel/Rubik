@@ -13,8 +13,10 @@ public class Main {
 	public static void main(String[] args) {
 		cube = new Cube();
 		askColor();
-		// cube.turnFaceRight(cube.getWhiteFace(), 1);
-		test();
+		System.out.println(cube.getWhiteFace().getColorCenter());
+		/*test();
+		cube.turnFaceRight(cube.getWhiteFace(), 1);
+		test();*/
 	}
 	
 	private static void test() {

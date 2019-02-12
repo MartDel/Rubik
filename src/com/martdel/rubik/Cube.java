@@ -41,7 +41,7 @@ public class Cube {
 		}
 	}
 	
-	private void updateAdjacentsFaces(Face f) {
+	public void updateAdjacentsFaces(Face f) {
 		switch(f.getColorCenter()) {
 		case WHITE :
 			blueFace.setOne(orangeFace.getThree());
@@ -128,6 +128,11 @@ public class Cube {
 			redFace.setEight(greenFace.getEight());
 			break;
 		}
+	}
+	
+	public void test() {
+		redFace.setEight(greenFace.getEight());
+		System.out.println(redFace.getEight());
 	}
 
 	public void turnFaceLeft(int t) {
