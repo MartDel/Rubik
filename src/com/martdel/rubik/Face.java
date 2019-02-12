@@ -47,6 +47,34 @@ public class Face {
 		return r;
 	}
 	
+	public Color getAttribut(Integer a) {
+		Color r = null;
+		switch(a) {
+		case 1: r = getOne(); break;
+		case 2: r = getTwo(); break;
+		case 3: r = getThree(); break;
+		case 4: r = getFour(); break;
+		case 5: r = getFive(); break;
+		case 6: r = getSix(); break;
+		case 7: r = getSeven(); break;
+		case 8: r = getEight(); break;
+		}
+		return r;
+	}
+	
+	public void setAttribut(Integer a, Color v) {
+		switch(a) {
+		case 1: setOne(v); break;
+		case 2: setTwo(v); break;
+		case 3: setThree(v); break;
+		case 4: setFour(v); break;
+		case 5: setFive(v); break;
+		case 6: setSix(v); break;
+		case 7: setSeven(v); break;
+		case 8: setEight(v); break;
+		}
+	}
+	
 	// Getters and setters
 
 	public Color getEight() {

@@ -13,13 +13,21 @@ public class Main {
 	public static void main(String[] args) {
 		cube = new Cube();
 		askColor();
-		System.out.println(cube.getWhiteFace().getColorCenter());
-		/*test();
+		test();
 		cube.turnFaceRight(cube.getWhiteFace(), 1);
-		test();*/
+		test();
 	}
 	
-	private static void test() {
+	public void moveFace(Face f, Boolean d, int t) {
+		
+		if(d) {
+			
+		} else {
+			
+		}
+	}
+	
+	public static void test() {
 		// test method to test the turn method
 		String[][] result = cube.toArray();
 		String[] faces = {"blanche", "bleue", "rouge", "verte", "orange", "jaune"};
