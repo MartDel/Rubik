@@ -14,16 +14,15 @@ public class Main {
 		cube = new Cube();
 		askColor();
 		test();
-		cube.turnFaceRight(cube.getWhiteFace(), 1);
-		test();
 	}
 	
 	public void moveFace(Face f, Boolean d, int t) {
-		
+		Cube newCube = new Cube();
+		cube.copyTo(newCube);
 		if(d) {
-			
+			cube.turnFaceRight(newCube, f, t);
 		} else {
-			
+			cube.turnFaceLeft(newCube, f, t);
 		}
 	}
 	

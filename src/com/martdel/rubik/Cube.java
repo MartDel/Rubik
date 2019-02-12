@@ -137,8 +137,9 @@ public class Cube {
 		}
 	}
 
-	public void turnFaceLeft(int t) {
+	public Cube turnFaceLeft(Cube newCube, Face f, int t) {
 		// Turn a face to the left
+		return newCube;
 	}
 	
 	public Face getAttribut(Color a) {
