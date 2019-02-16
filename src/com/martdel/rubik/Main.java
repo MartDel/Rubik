@@ -13,17 +13,9 @@ public class Main {
 	public static void main(String[] args) {
 		cube = new Cube();
 		askColor();
+		cube.turnFaceRight(cube.getWhiteFace(), 1);
+		System.out.println("--------------------");
 		test();
-	}
-	
-	public void moveFace(Face f, Boolean d, int t) {
-		Cube newCube = new Cube();
-		cube.copyTo(newCube);
-		if(d) {
-			cube.turnFaceRight(newCube, f, t);
-		} else {
-			cube.turnFaceLeft(newCube, f, t);
-		}
 	}
 	
 	public static void test() {
