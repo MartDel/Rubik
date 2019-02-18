@@ -18,6 +18,30 @@ public class Cube {
 		// TODO Auto-generated constructor stubs
 	}
 	
+	public Face getAttribut(Color a) {
+		Face f = null;
+		switch(a) {
+		case WHITE: f = getWhiteFace(); break;
+		case BLUE: f = getBlueFace(); break;
+		case RED: f = getRedFace(); break;
+		case GREEN: f = getGreenFace(); break;
+		case ORANGE: f = getOrangeFace(); break;
+		case YELLOW: f = getYellowFace(); break;
+		}
+		return f;
+	}
+	
+	public void setAttribut(Color a, Face v) {
+		switch(a) {
+		case WHITE: setWhiteFace(v); break;
+		case BLUE: setBlueFace(v); break;
+		case RED: setRedFace(v); break;
+		case GREEN: setGreenFace(v); break;
+		case ORANGE: setOrangeFace(v); break;
+		case YELLOW: setYellowFace(v); break;
+		}
+	}
+	
 	public String[][] toArray(){
 		String[][] r = {
 			whiteFace.toArray(),
@@ -35,16 +59,24 @@ public class Cube {
 		return returnFace;
 	}
 
-	public void turnFaceRight(Face f, int t) {
+	public void turnFace(Face f, boolean o, int t) {
 		// Turn a face to the right
 		for(int i = 0; i < t; i++) {
 			Face newF = new Face(null, null, null, null, null, null, null, null, null);
-			Integer[] idOfTheNewColor = {6, 4, 1, 7, 2, 8, 5, 3}; // Creating an array which contain the order of the id of the stickers which will become the new stickers
+			Integer[] idOfTheNewColorR = {6, 4, 1, 7, 2, 8, 5, 3};
+			Integer[] idOfTheNewColorL = {3, 5, 8, 2, 7, 1, 4, 6};
+			Integer[] idOfTheNewColor; // Creating an array which contain the order of the id of the stickers which will become the new stickers
+			if(o) {
+				idOfTheNewColor = idOfTheNewColorR;
+				updateAdjFacesRight(f);
+			} else {
+				idOfTheNewColor = idOfTheNewColorL;
+				updateAdjFacesLeft(f);
+			}
 			for(int j = 1; j <= 8; j++) {
 				newF.setAttribut(j, f.getAttribut(idOfTheNewColor[j - 1]));
 			}
 			setAttribut(f.getColorCenter(), newF);
-			updateAdjFacesRight(f);
 		}
 	}
 	
@@ -184,19 +216,6 @@ public class Cube {
 			break;
 		}
 	}
-
-	public void turnFaceLeft(Face f, int t) {
-		// Turn a face to the left
-		for(int i = 0; i < t; i++) {
-			Face newF = new Face(null, null, null, null, null, null, null, null, null);
-			Integer[] idOfTheNewColor = {3, 5, 8, 2, 7, 1, 4, 6}; // Creating an array which contain the order of the id of the stickers which will become the new stickers
-			for(int j = 1; j <= 8; j++) {
-				newF.setAttribut(j, f.getAttribut(idOfTheNewColor[j - 1]));
-			}
-			setAttribut(f.getColorCenter(), newF);
-			updateAdjFacesLeft(f);
-		}
-	}
 	
 	public void updateAdjFacesLeft(Face f) {
 		switch(f.getColorCenter()) {
@@ -332,30 +351,6 @@ public class Cube {
 			setAttribut(Color.GREEN, newThirdF5);
 			setAttribut(Color.RED, newFourthF5);
 			break;
-		}
-	}
-	
-	public Face getAttribut(Color a) {
-		Face f = null;
-		switch(a) {
-		case WHITE: f = getWhiteFace(); break;
-		case BLUE: f = getBlueFace(); break;
-		case RED: f = getRedFace(); break;
-		case GREEN: f = getGreenFace(); break;
-		case ORANGE: f = getOrangeFace(); break;
-		case YELLOW: f = getYellowFace(); break;
-		}
-		return f;
-	}
-	
-	public void setAttribut(Color a, Face v) {
-		switch(a) {
-		case WHITE: setWhiteFace(v); break;
-		case BLUE: setBlueFace(v); break;
-		case RED: setRedFace(v); break;
-		case GREEN: setGreenFace(v); break;
-		case ORANGE: setOrangeFace(v); break;
-		case YELLOW: setYellowFace(v); break;
 		}
 	}
 	

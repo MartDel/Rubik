@@ -13,7 +13,6 @@ public class Main {
 	public static void main(String[] args) {
 		cube = new Cube();
 		askColor();
-		cube.turnFaceRight(cube.getBlueFace(), 3);
 		System.out.println("--------------------");
 		test();
 	}
