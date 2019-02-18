@@ -37,16 +37,18 @@ public class Cube {
 
 	public void turnFaceRight(Face f, int t) {
 		// Turn a face to the right
-		Face newF = new Face(null, null, null, null, null, null, null, null, null);
-		Integer[] idOfTheNewColor = {6, 4, 1, 7, 2, 8, 5, 3}; // Creating an array which contain the order of the id of the stickers which will become the new stickers
-		for(int j = 1; j <= 8; j++) {
-			newF.setAttribut(j, f.getAttribut(idOfTheNewColor[j - 1]));
+		for(int i = 0; i < t; i++) {
+			Face newF = new Face(null, null, null, null, null, null, null, null, null);
+			Integer[] idOfTheNewColor = {6, 4, 1, 7, 2, 8, 5, 3}; // Creating an array which contain the order of the id of the stickers which will become the new stickers
+			for(int j = 1; j <= 8; j++) {
+				newF.setAttribut(j, f.getAttribut(idOfTheNewColor[j - 1]));
+			}
+			setAttribut(f.getColorCenter(), newF);
+			updateAdjFacesRight(f);
 		}
-		setAttribut(f.getColorCenter(), newF);
-		updateAdjacentsFaces(f);
 	}
 	
-	public void updateAdjacentsFaces(Face f) {
+	public void updateAdjFacesRight(Face f) {
 		switch(f.getColorCenter()) {
 		case WHITE :
 			Face newFirstF = copyFaceFrom(getBlueFace());
@@ -183,9 +185,154 @@ public class Cube {
 		}
 	}
 
-	public Cube turnFaceLeft(Cube newCube, Face f, int t) {
+	public void turnFaceLeft(Face f, int t) {
 		// Turn a face to the left
-		return newCube;
+		for(int i = 0; i < t; i++) {
+			Face newF = new Face(null, null, null, null, null, null, null, null, null);
+			Integer[] idOfTheNewColor = {3, 5, 8, 2, 7, 1, 4, 6}; // Creating an array which contain the order of the id of the stickers which will become the new stickers
+			for(int j = 1; j <= 8; j++) {
+				newF.setAttribut(j, f.getAttribut(idOfTheNewColor[j - 1]));
+			}
+			setAttribut(f.getColorCenter(), newF);
+			updateAdjFacesLeft(f);
+		}
+	}
+	
+	public void updateAdjFacesLeft(Face f) {
+		switch(f.getColorCenter()) {
+		case WHITE :
+			Face newFirstF = copyFaceFrom(getBlueFace());
+			Face newSecondF = copyFaceFrom(getRedFace());
+			Face newThirdF = copyFaceFrom(getGreenFace());
+			Face newFourthF = copyFaceFrom(getOrangeFace());
+			newFirstF.setThree(redFace.getThree());
+			newFirstF.setTwo(redFace.getTwo());
+			newFirstF.setOne(redFace.getOne());
+			newSecondF.setThree(greenFace.getThree());
+			newSecondF.setTwo(greenFace.getTwo());
+			newSecondF.setOne(greenFace.getOne());
+			newThirdF.setThree(orangeFace.getThree());
+			newThirdF.setTwo(orangeFace.getTwo());
+			newThirdF.setOne(orangeFace.getOne());
+			newFourthF.setThree(blueFace.getThree());
+			newFourthF.setTwo(blueFace.getTwo());
+			newFourthF.setOne(blueFace.getOne());
+			setAttribut(Color.BLUE, newFirstF);
+			setAttribut(Color.RED, newSecondF);
+			setAttribut(Color.GREEN, newThirdF);
+			setAttribut(Color.ORANGE, newFourthF);
+			break;
+		case BLUE:
+			Face newFirstF1 = copyFaceFrom(getWhiteFace());
+			Face newSecondF1 = copyFaceFrom(getOrangeFace());
+			Face newThirdF1 = copyFaceFrom(getYellowFace());
+			Face newFourthF1 = copyFaceFrom(getRedFace());
+			newFirstF1.setThree(orangeFace.getOne());
+			newFirstF1.setTwo(orangeFace.getFour());
+			newFirstF1.setOne(orangeFace.getSix());
+			newSecondF1.setOne(yellowFace.getThree());
+			newSecondF1.setFour(yellowFace.getTwo());
+			newSecondF1.setSix(yellowFace.getOne());
+			newThirdF1.setThree(redFace.getEight());
+			newThirdF1.setTwo(redFace.getFive());
+			newThirdF1.setOne(redFace.getThree());
+			newFourthF1.setEight(whiteFace.getThree());
+			newFourthF1.setFive(whiteFace.getTwo());
+			newFourthF1.setThree(whiteFace.getOne());
+			setAttribut(Color.WHITE, newFirstF1);
+			setAttribut(Color.ORANGE, newSecondF1);
+			setAttribut(Color.YELLOW, newThirdF1);
+			setAttribut(Color.RED, newFourthF1);
+			break;
+		case RED:
+			Face newFirstF2 = copyFaceFrom(getWhiteFace());
+			Face newSecondF2 = copyFaceFrom(getBlueFace());
+			Face newThirdF2 = copyFaceFrom(getYellowFace());
+			Face newFourthF2 = copyFaceFrom(getGreenFace());
+			newFirstF2.setEight(blueFace.getOne());
+			newFirstF2.setFive(blueFace.getFour());
+			newFirstF2.setThree(blueFace.getSix());
+			newSecondF2.setOne(yellowFace.getOne());
+			newSecondF2.setFour(yellowFace.getFour());
+			newSecondF2.setSix(yellowFace.getSix());
+			newThirdF2.setOne(greenFace.getEight());
+			newThirdF2.setFour(greenFace.getFive());
+			newThirdF2.setSix(greenFace.getThree());
+			newFourthF2.setEight(whiteFace.getEight());
+			newFourthF2.setFive(whiteFace.getFive());
+			newFourthF2.setThree(whiteFace.getThree());
+			setAttribut(Color.WHITE, newFirstF2);
+			setAttribut(Color.BLUE, newSecondF2);
+			setAttribut(Color.YELLOW, newThirdF2);
+			setAttribut(Color.GREEN, newFourthF2);
+			break;
+		case GREEN:
+			Face newFirstF3 = copyFaceFrom(getWhiteFace());
+			Face newSecondF3 = copyFaceFrom(getRedFace());
+			Face newThirdF3 = copyFaceFrom(getYellowFace());
+			Face newFourthF3 = copyFaceFrom(getOrangeFace());
+			newFirstF3.setSix(redFace.getOne());
+			newFirstF3.setSeven(redFace.getFour());
+			newFirstF3.setEight(redFace.getSix());
+			newSecondF3.setOne(yellowFace.getSix());
+			newSecondF3.setFour(yellowFace.getSeven());
+			newSecondF3.setSix(yellowFace.getEight());
+			newThirdF3.setSix(orangeFace.getEight());
+			newThirdF3.setSeven(orangeFace.getFive());
+			newThirdF3.setEight(orangeFace.getThree());
+			newFourthF3.setEight(whiteFace.getSix());
+			newFourthF3.setFive(whiteFace.getSeven());
+			newFourthF3.setThree(whiteFace.getEight());
+			setAttribut(Color.WHITE, newFirstF3);
+			setAttribut(Color.RED, newSecondF3);
+			setAttribut(Color.YELLOW, newThirdF3);
+			setAttribut(Color.ORANGE, newFourthF3);
+			break;
+		case ORANGE:
+			Face newFirstF4 = copyFaceFrom(getWhiteFace());
+			Face newSecondF4 = copyFaceFrom(getGreenFace());
+			Face newThirdF4 = copyFaceFrom(getYellowFace());
+			Face newFourthF4 = copyFaceFrom(getBlueFace());
+			newFirstF4.setOne(greenFace.getOne());
+			newFirstF4.setFour(greenFace.getFour());
+			newFirstF4.setSix(greenFace.getSix());
+			newSecondF4.setOne(yellowFace.getEight());
+			newSecondF4.setFour(yellowFace.getFive());
+			newSecondF4.setSix(yellowFace.getThree());
+			newThirdF4.setEight(blueFace.getEight());
+			newThirdF4.setFive(blueFace.getFive());
+			newThirdF4.setThree(blueFace.getThree());
+			newFourthF4.setEight(whiteFace.getOne());
+			newFourthF4.setFive(whiteFace.getFour());
+			newFourthF4.setThree(whiteFace.getSix());
+			setAttribut(Color.WHITE, newFirstF4);
+			setAttribut(Color.GREEN, newSecondF4);
+			setAttribut(Color.YELLOW, newThirdF4);
+			setAttribut(Color.BLUE, newFourthF4);
+			break;
+		case YELLOW:
+			Face newFirstF5 = copyFaceFrom(getBlueFace());
+			Face newSecondF5 = copyFaceFrom(getOrangeFace());
+			Face newThirdF5 = copyFaceFrom(getGreenFace());
+			Face newFourthF5 = copyFaceFrom(getRedFace());
+			newFirstF5.setSix(orangeFace.getSix());
+			newFirstF5.setSeven(orangeFace.getSeven());
+			newFirstF5.setEight(orangeFace.getEight());
+			newSecondF5.setSix(greenFace.getSix());
+			newSecondF5.setSeven(greenFace.getSeven());
+			newSecondF5.setEight(greenFace.getEight());
+			newThirdF5.setSix(redFace.getSix());
+			newThirdF5.setSeven(redFace.getSeven());
+			newThirdF5.setEight(redFace.getEight());
+			newFourthF5.setSix(blueFace.getSix());
+			newFourthF5.setSeven(blueFace.getSeven());
+			newFourthF5.setEight(blueFace.getEight());
+			setAttribut(Color.BLUE, newFirstF5);
+			setAttribut(Color.ORANGE, newSecondF5);
+			setAttribut(Color.GREEN, newThirdF5);
+			setAttribut(Color.RED, newFourthF5);
+			break;
+		}
 	}
 	
 	public Face getAttribut(Color a) {
