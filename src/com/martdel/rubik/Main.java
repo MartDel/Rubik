@@ -16,8 +16,8 @@ public class Main {
 		init();
 		// Turn the blue face once to the right 
 		cube.turnFace(cube.getBlueFace(), true, 1);
-		// Print color of the center of the blue face
-		System.out.println(cube.getBlueFace().getColorCenter());
+		cube.turnFace(cube.getBlueFace(), true, 1);
+		test();
 	}
 	
 	// function to init the cube attribut without ask the colors to the user

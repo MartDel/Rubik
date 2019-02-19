@@ -67,7 +67,7 @@ public class Cube {
 	public void turnFace(Face f, boolean o, int t) {
 		// Turn a face to the right
 		for(int i = 0; i < t; i++) {
-			Face newF = new Face(null, null, null, null, null, null, null, null, null);
+			Face newF = new Face(f.getColorCenter(), null, null, null, null, null, null, null, null);
 			Integer[] idOfTheNewColorR = {6, 4, 1, 7, 2, 8, 5, 3};
 			Integer[] idOfTheNewColorL = {3, 5, 8, 2, 7, 1, 4, 6};
 			Integer[] idOfTheNewColor; // Creating an array which contain the order of the id of the stickers which will become the new stickers
@@ -83,7 +83,6 @@ public class Cube {
 				newF.setAttribut(j, f.getAttribut(idOfTheNewColor[j - 1]));
 			}
 			setAttribut(f.getColorCenter(), newF);
-			System.out.println(f.getColorCenter());
 		}
 	}
 	
