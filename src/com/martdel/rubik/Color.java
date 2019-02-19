@@ -8,7 +8,9 @@ public enum Color {
 	ORANGE("orange", "blanche"),
 	YELLOW("jaune", "bleue");
 	
+	// Traduction of the color to print it in a sentence
 	private String french;
+	// Look at the file "shcema.png"
 	private String faceOrientation;
 	
 	Color(String french, String faceOrientation){

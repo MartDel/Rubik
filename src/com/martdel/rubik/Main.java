@@ -11,16 +11,16 @@ public class Main {
 	private static Cube cube;
 
 	public static void main(String[] args) {
+		// Init the rubik's cube
 		cube = new Cube();
-		// askColor();
 		init();
-		cube.turnFace(cube.getAttribut(Color.BLUE), true, 1);
-		System.out.println(cube.getAttribut(Color.BLUE).getColorCenter());
-		//cube.turnFace(cube.getAttribut(Color.BLUE), true, 1);
-		System.out.println("--------------------");
-		test();
+		// Turn the blue face once to the right 
+		cube.turnFace(cube.getBlueFace(), true, 1);
+		// Print color of the center of the blue face
+		System.out.println(cube.getBlueFace().getColorCenter());
 	}
 	
+	// function to init the cube attribut without ask the colors to the user
 	public static void init() {
 		Color w = Color.WHITE;
 		Color b = Color.BLUE;
@@ -42,6 +42,7 @@ public class Main {
 		cube.setAttribut(y, yellowFace);
 	}
 	
+	// Print the colors of the cube to test methods
 	public static void test() {
 		// test method to test the turn method
 		String[][] result = cube.toArray();
@@ -55,6 +56,7 @@ public class Main {
 	    }
 	}
 
+	// function to get informations from the user about the cube (return a Color)
 	public static Color input(String ask) {
 		String s = "";
 		Color r = null;
@@ -80,6 +82,7 @@ public class Main {
 		return r;
 	}
 	
+	// Function who ask all of the colors in the cube
 	public static void askColor() {
 		Integer whiteCounter = 0;
 		Integer blueCounter = 0;
@@ -130,5 +133,4 @@ public class Main {
 			}
 		} while(whiteCounter != 8 || blueCounter != 8 || redCounter != 8 || greenCounter != 8 || orangeCounter != 8 || yellowCounter != 8);
 	}
-
 }

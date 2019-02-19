@@ -18,6 +18,7 @@ public class Cube {
 		// TODO Auto-generated constructor stubs
 	}
 	
+	// Get an attribut with the color of the face
 	public Face getAttribut(Color a) {
 		Face f = null;
 		switch(a) {
@@ -31,6 +32,7 @@ public class Cube {
 		return f;
 	}
 	
+	// Set an attribut
 	public void setAttribut(Color a, Face v) {
 		switch(a) {
 		case WHITE: setWhiteFace(v); break;
@@ -42,6 +44,7 @@ public class Cube {
 		}
 	}
 	
+	// Return all of the colors in the cube
 	public String[][] toArray(){
 		String[][] r = {
 			whiteFace.toArray(),
@@ -54,11 +57,13 @@ public class Cube {
 		return r;
 	}
 	
+	// Duplicate a face
 	public Face copyFaceFrom(Face origin) {
 		Face returnFace = new Face(origin.getColorCenter(), origin.getOne(), origin.getTwo(), origin.getThree(), origin.getFour(), origin.getFive(), origin.getSix(), origin.getSeven(), origin.getEight());
 		return returnFace;
 	}
 
+	// Turn a face "t" times and if "o" is true then the face will turn to the right else to the left
 	public void turnFace(Face f, boolean o, int t) {
 		// Turn a face to the right
 		for(int i = 0; i < t; i++) {

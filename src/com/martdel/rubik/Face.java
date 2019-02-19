@@ -33,6 +33,7 @@ public class Face {
 		setEight(eight);
 	}
 	
+	// Return all of the colors in this face
 	public String[] toArray() {
 		String[] r = {
 			one.toString(),
@@ -47,6 +48,7 @@ public class Face {
 		return r;
 	}
 	
+	// Get an attribut
 	public Color getAttribut(Integer a) {
 		Color r = null;
 		switch(a) {
@@ -62,6 +64,7 @@ public class Face {
 		return r;
 	}
 	
+	// Set an attribut
 	public void setAttribut(Integer a, Color v) {
 		switch(a) {
 		case 1: setOne(v); break;
