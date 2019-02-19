@@ -11,12 +11,14 @@ public class Main {
 	private static Cube cube;
 
 	public static void main(String[] args) {
-		// Init the rubik's cube
 		cube = new Cube();
 		init();
-		// Turn the blue face once to the right 
-		cube.turnFace(cube.getBlueFace(), true, 1);
-		cube.turnFace(cube.getBlueFace(), true, 1);
+		for(int i = 0; i < 6; i++) {
+			cube.turnFace(cube.getBlueFace(), true, 1);
+			cube.turnFace(cube.getWhiteFace(), true, 1);
+			cube.turnFace(cube.getBlueFace(), false, 1);
+			cube.turnFace(cube.getWhiteFace(), false, 1);			
+		}
 		test();
 	}
 	

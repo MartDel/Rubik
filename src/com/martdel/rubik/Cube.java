@@ -76,7 +76,6 @@ public class Cube {
 				updateAdjFacesRight(f);
 			} else {
 				idOfTheNewColor = idOfTheNewColorL;
-				System.out.println(f.getColorCenter());
 				updateAdjFacesLeft(f);
 			}
 			for(int j = 1; j <= 8; j++) {
@@ -96,9 +95,9 @@ public class Cube {
 			newFirstF.setThree(orangeFace.getThree());
 			newFirstF.setTwo(orangeFace.getTwo());
 			newFirstF.setOne(orangeFace.getOne());
-			newSecondF.setThree(blueFace.getOne());
+			newSecondF.setThree(blueFace.getThree());
 			newSecondF.setTwo(blueFace.getTwo());
-			newSecondF.setOne(blueFace.getThree());
+			newSecondF.setOne(blueFace.getOne());
 			newThirdF.setThree(redFace.getThree());
 			newThirdF.setTwo(redFace.getTwo());
 			newThirdF.setOne(redFace.getOne());
