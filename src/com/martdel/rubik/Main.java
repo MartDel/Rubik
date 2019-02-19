@@ -12,9 +12,34 @@ public class Main {
 
 	public static void main(String[] args) {
 		cube = new Cube();
-		askColor();
+		// askColor();
+		init();
+		cube.turnFace(cube.getAttribut(Color.BLUE), true, 1);
+		System.out.println(cube.getAttribut(Color.BLUE).getColorCenter());
+		//cube.turnFace(cube.getAttribut(Color.BLUE), true, 1);
 		System.out.println("--------------------");
 		test();
+	}
+	
+	public static void init() {
+		Color w = Color.WHITE;
+		Color b = Color.BLUE;
+		Color r = Color.RED;
+		Color g = Color.GREEN;
+		Color o = Color.ORANGE;
+		Color y = Color.YELLOW;
+		Face whiteFace = new Face(w, w, w, w, w, w, w, w, w);
+		cube.setAttribut(w, whiteFace);
+		Face blueFace = new Face(b, b, b, b, b, b, b, b, b);
+		cube.setAttribut(b, blueFace);
+		Face redFace = new Face(r, r, r, r, r, r, r, r, r);
+		cube.setAttribut(r, redFace);
+		Face greenFace = new Face(g, g, g, g, g, g, g, g, g);
+		cube.setAttribut(g, greenFace);
+		Face orangeFace = new Face(o, o, o, o, o, o, o, o, o);
+		cube.setAttribut(o, orangeFace);
+		Face yellowFace = new Face(y, y, y, y, y, y, y, y, y);
+		cube.setAttribut(y, yellowFace);
 	}
 	
 	public static void test() {

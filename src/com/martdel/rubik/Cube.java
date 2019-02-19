@@ -71,12 +71,14 @@ public class Cube {
 				updateAdjFacesRight(f);
 			} else {
 				idOfTheNewColor = idOfTheNewColorL;
+				System.out.println(f.getColorCenter());
 				updateAdjFacesLeft(f);
 			}
 			for(int j = 1; j <= 8; j++) {
 				newF.setAttribut(j, f.getAttribut(idOfTheNewColor[j - 1]));
 			}
 			setAttribut(f.getColorCenter(), newF);
+			System.out.println(f.getColorCenter());
 		}
 	}
 	
