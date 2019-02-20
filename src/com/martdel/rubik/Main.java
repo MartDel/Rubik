@@ -181,7 +181,7 @@ public class Main {
 			System.out.println("Remplicez les informations pour chaque phrase une par une :");
 			System.out.println("! Si le programme se relance cela signifie que les données remplie ne sont pas valides !");
 			for(Color faceColor : Color.values()) {
-				String faceOrientation = faceColor.getFaceOrientation();
+				String faceOrientation = faceColor.getTop();
 				String faceName = faceColor.getFrench();
 				Map<Integer, Color> array = new HashMap<>();
 				System.out.println("------------------------------------");
