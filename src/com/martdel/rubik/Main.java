@@ -3,6 +3,7 @@ package com.martdel.rubik;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -20,7 +21,7 @@ public class Main {
 	
 	public static void firstCross() {
 		Color bestCross = findFirstCross(); // Find the best cross to start the cube solving
-		System.out.println(bestCross);
+		Face f = cube.getAttribut(bestCross);
 	}
 	
 	private static Color findFirstCross() {
@@ -31,7 +32,7 @@ public class Main {
 			Integer crossScore = 0;
 			Integer[] ridges = {2, 4, 5, 7};
 			switch(faceColor) {
-			case WHITE : 
+			case WHITE :
 				Color[] adjFaces = {Color.BLUE, Color.ORANGE, Color.RED, Color.GREEN};
 				for(int i = 0; i < ridges.length; i++) {
 					if(f.getAttribut(ridges[i]) == faceColor && cube.getAttribut(adjFaces[i]).getTwo() == adjFaces[i]) {
