@@ -86,6 +86,31 @@ public class Cube {
 	}
 	
 	public void updateAdjFacesRight(Face f) {
+		Integer[] top = {3, 2, 1};
+		Integer[] right = {3, 2, 1};
+		Integer[] bottom = {3, 2, 1};
+		Integer[] left = {3, 2, 1};
+		// Duplicate the adjacents faces of the turning face in others variables
+		Face newFirstF = copyFaceFrom(getAttribut(Main.getColorFromFr(f.getColorCenter().getTop())));
+		Face newSecondF = copyFaceFrom(getAttribut(Main.getColorFromFr(f.getColorCenter().getRight())));
+		Face newThirdF = copyFaceFrom(getAttribut(Main.getColorFromFr(f.getColorCenter().getBottom())));
+		Face newFourthF = copyFaceFrom(getAttribut(Main.getColorFromFr(f.getColorCenter().getLeft())));
+		for(int i = 0; i < top.length; i++) {
+			newFirstF.setAttribut(top[i], getAttribut(Main.getColorFromFr(f.getColorCenter().getLeft())).getAttribut(left[i]));		
+		}
+		newSecondF.setThree(getAttribut(Main.getColorFromFr(f.getColorCenter().getTop())).getThree());
+		newSecondF.setTwo(getAttribut(Main.getColorFromFr(f.getColorCenter().getTop())).getTwo());
+		newSecondF.setOne(getAttribut(Main.getColorFromFr(f.getColorCenter().getTop())).getOne());
+		newThirdF.setThree(getAttribut(Main.getColorFromFr(f.getColorCenter().getRight())).getThree());
+		newThirdF.setTwo(getAttribut(Main.getColorFromFr(f.getColorCenter().getRight())).getTwo());
+		newThirdF.setOne(getAttribut(Main.getColorFromFr(f.getColorCenter().getRight())).getOne());
+		newFourthF.setThree(getAttribut(Main.getColorFromFr(f.getColorCenter().getBottom())).getThree());
+		newFourthF.setTwo(getAttribut(Main.getColorFromFr(f.getColorCenter().getBottom())).getTwo());
+		newFourthF.setOne(getAttribut(Main.getColorFromFr(f.getColorCenter().getBottom())).getOne());
+		setAttribut(Main.getColorFromFr(f.getColorCenter().getTop()), newFirstF);
+		setAttribut(Main.getColorFromFr(f.getColorCenter().getLeft()), newSecondF);
+		setAttribut(Main.getColorFromFr(f.getColorCenter().getBottom()), newThirdF);
+		setAttribut(Main.getColorFromFr(f.getColorCenter().getLeft()), newFourthF);
 		switch(f.getColorCenter()) {
 		case WHITE :
 			Face newFirstF = copyFaceFrom(getBlueFace());
