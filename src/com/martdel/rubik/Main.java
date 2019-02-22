@@ -134,6 +134,17 @@ public class Main {
 	        System.out.println();
 	    }
 	}
+	
+	public static Color getColorFromFr(String fr) {
+		Color r = null;
+		for(Color color : Color.values()) {
+			if(color.getFrench() == fr) {
+				r = color;
+				break;
+			}
+		}
+		return r;
+	}
 
 	// function to get informations from the user about the cube (return a Color)
 	public static Color input(String ask) {

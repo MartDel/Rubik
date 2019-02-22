@@ -24,6 +24,18 @@ public enum Color {
 		this.left = left;
 	}
 	
+	public String getAttribut(String a) {
+		String r = null;
+		switch(a) {
+		case "french" : r = french; break;
+		case "top" : r = top; break;
+		case "right" : r = right; break;
+		case "bottom" : r = bottom; break;
+		case "left" : r = left; break;
+		}
+		return r;
+	}
+	
 	public String getFrench() {
 		return french;
 	}
