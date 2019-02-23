@@ -15,8 +15,6 @@ public class Main {
 	public static void main(String[] args) {
 		cube = new Cube();
 		init();
-		// askColor();
-		firstCross();
 	}
 	
 	public static void firstCross() {
