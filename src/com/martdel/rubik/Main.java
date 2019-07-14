@@ -3,7 +3,6 @@ package com.martdel.rubik;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -15,13 +14,14 @@ public class Main {
 	public static void main(String[] args) {
 		cube = new Cube();
 		init();
-		firstCross();
+		// firstCross();
+		findFirstCross(); // Not useful : to avoid having errors
 	}
 	
-	public static void firstCross() {
+	/*public static void firstCross() {
 		Color bestCross = findFirstCross(); // Find the best cross to start the cube solving
 		Face f = cube.getAttribut(bestCross);
-	}
+	}*/
 	
 	private static Color findFirstCross() {
 		// Find the best cross in the cube and put the result in a HashMap
