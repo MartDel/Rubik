@@ -1,8 +1,5 @@
 package com.martdel.rubik;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -13,7 +10,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		cube = new Cube();
-		init();
+		test();
 		// firstCross();
 		findFirstCross(); // Not useful : to avoid having errors
 	}
@@ -98,7 +95,7 @@ public class Main {
 		return bestCross;
 	}
 
-	// function to init the cube attribut without ask the colors to the user (cube solved)
+	// function to init the cube attributes without ask the colors to the user (cube solved)
 	public static void initSolved() {
 		Color w = Color.WHITE;
 		Color b = Color.BLUE;
@@ -120,7 +117,7 @@ public class Main {
 		cube.setAttribut(y, yellowFace);
 	}
 
-	// function to init the cube attribut without ask the colors to the user
+	// function to init the cube attributes without ask the colors to the user
 	public static void init() {
 		Color w = Color.WHITE;
 		Color b = Color.BLUE;
@@ -154,83 +151,5 @@ public class Main {
 	        }
 	        System.out.println();
 	    }
-	}
-
-	// function to get informations from the user about the cube (return a Color)
-	public static Color input(String ask) {
-		String s = "";
-		Color r = null;
-		BufferedReader ob = new BufferedReader(new InputStreamReader(System.in));
- 		System.out.println(ask);
- 		try {
-			s = ob.readLine();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
- 		switch(s) {
- 		case "w" : r = Color.WHITE; break;
- 		case "b" : r = Color.BLUE; break;
- 		case "r" : r = Color.RED; break;
- 		case "g" : r = Color.GREEN; break;
- 		case "o" : r = Color.ORANGE; break;
- 		case "y" : r = Color.YELLOW; break;
- 		default:
- 			System.out.println("La saisie est incorrecte!");
- 			r = input(ask);
- 			break;
- 		}
-		return r;
-	}
-	
-	// Function who ask all of the colors in the cube
-	public static void askColor() {
-		Integer whiteCounter = 0;
-		Integer blueCounter = 0;
-		Integer redCounter = 0;
-		Integer greenCounter = 0;
-		Integer orangeCounter = 0;
-		Integer yellowCounter = 0;
-		do {
-			whiteCounter = 0;
-			blueCounter = 0;
-			redCounter = 0;
-			greenCounter = 0;
-			orangeCounter = 0;
-			yellowCounter = 0;
-			System.out.println("Rentrer les couleurs des �tiquettes du cube");
-			System.out.println("w pour white, r pour red, b pour blue, etc...");
-			System.out.println("Remplicez les informations pour chaque phrase une par une :");
-			System.out.println("! Si le programme se relance cela signifie que les donn�es remplie ne sont pas valides !");
-			for(Color faceColor : Color.values()) {
-				String faceOrientation = faceColor.getTop();
-				String faceName = faceColor.getFrench();
-				Map<Integer, Color> array = new HashMap<>();
-				System.out.println("------------------------------------");
-				System.out.println("Face " + faceName + " : ");
-				System.out.println("Orientez la face " + faceName + " vers la face " + faceOrientation);
-				System.out.println("(face " + faceName + " face � vous et face " + faceOrientation + " derri�re)");
-				array.put(1, input("Coin en haut � gauche :"));
-				array.put(2, input("Ar�te en haut au centre :"));
-				array.put(3, input("Coin en haut � droite :"));
-				array.put(4, input("Ar�te au milieu � gauche :"));
-				array.put(5, input("Ar�te au milieu � droite :"));
-				array.put(6, input("Coin en bas � gauche :"));
-				array.put(7, input("Arr�te en bas au centre :"));
-				array.put(8, input("Coin en bas � droite :"));
-				Face face = new Face(faceColor, array.get(1), array.get(2), array.get(3), array.get(4), array.get(5), array.get(6), array.get(7), array.get(8));
-				cube.setAttribut(faceColor, face);
-				// Safety :
-				for(int i = 1; i <= array.size(); i++) {
-					switch(array.get(i)) {
-					case WHITE: whiteCounter++; break;
-					case BLUE: blueCounter++; break;
-					case RED: redCounter++; break;
-					case GREEN: greenCounter++; break;
-					case ORANGE: orangeCounter++; break;
-					case YELLOW: yellowCounter++; break;
-					}
-				}
-			}
-		} while(whiteCounter != 8 || blueCounter != 8 || redCounter != 8 || greenCounter != 8 || orangeCounter != 8 || yellowCounter != 8);
 	}
 }
